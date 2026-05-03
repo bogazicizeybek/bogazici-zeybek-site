@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boğaziçi Üniversitesi Zeybek Ekibi</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    :root {
+      --bordo: #6B1A2A;
+      --bordo-derin: #4A0F1C;
+      --altin: #B8924A;
+      --krem: #FAF6EE;
+      --beyaz: #FFFFFF;
+      --gri-acik: #F5F2EC;
+      --gri: #E8E3D9;
+      --metin: #2A1F23;
+      --metin-soft: #5A4A50;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Google Sans', 'Google Sans Text', 'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--beyaz);
+      color: var(--metin);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 4rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(107, 26, 42, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--bordo);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo-mark {
+      width: 38px; height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+
+    .nav-links a {
+      color: var(--metin);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.25s;
+      padding: 0.4rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--bordo);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover { color: var(--bordo); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: var(--krem);
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(107, 26, 42, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -300px; left: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(184, 146, 74, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-ornament {
+      position: absolute;
+      width: 500px; height: 500px;
+      border: 1px solid rgba(107, 26, 42, 0.08);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin 50s linear infinite;
+    }
+
+    .hero-ornament::before {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border: 1px solid rgba(107, 26, 42, 0.06);
+      border-radius: 50%;
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeUp 1s ease both;
+      max-width: 900px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--bordo);
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(107, 26, 42, 0.06);
+      border-radius: 100px;
+    }
+
+    .hero-eyebrow-dot { width: 6px; height: 6px; background: var(--bordo); border-radius: 50%; }
+
+    .hero-logo {
+      width: 160px; height: 160px;
+      margin: 0 auto 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: 50%;
+      filter: drop-shadow(0 4px 12px rgba(107, 26, 42, 0.15));
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--metin);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span { color: var(--bordo); }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--metin-soft);
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--bordo); border: 1px solid var(--bordo);
+      color: var(--beyaz); padding: 0.85rem 1.8rem;
+      font-family: inherit; font-size: 0.92rem; font-weight: 500;
+      text-decoration: none; border-radius: 100px;
+      transition: all 0.25s ease; cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--bordo-derin); border-color: var(--bordo-derin);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(107, 26, 42, 0.2);
+    }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--beyaz); border: 1px solid var(--gri);
+      color: var(--metin); padding: 0.85rem 1.8rem;
+      font-family: inherit; font-size: 0.92rem; font-weight: 500;
+      text-decoration: none; border-radius: 100px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover { border-color: var(--bordo); color: var(--bordo); }
+
+    section { scroll-margin-top: 80px; }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 4rem; }
+
+    .section-label {
+      font-size: 0.82rem; font-weight: 500; color: var(--bordo);
+      margin-bottom: 1rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+
+    .section-label::before {
+      content: ''; width: 24px; height: 2px;
+      background: var(--bordo); border-radius: 2px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--metin); margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 span { color: var(--bordo); }
+
+    .about { background: var(--beyaz); }
+
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 5rem; align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1rem; line-height: 1.75;
+      color: var(--metin-soft); margin-bottom: 1.2rem;
+    }
+
+    .about-image { position: relative; }
+
+    .img-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: var(--gri-acik); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    .img-placeholder::before {
+      content: ''; position: absolute; inset: 14px;
+      border: 1px dashed rgba(107, 26, 42, 0.2); border-radius: 12px;
+    }
+
+    .img-placeholder-text {
+      font-size: 0.85rem; color: rgba(107, 26, 42, 0.4);
+      text-align: center; font-weight: 500;
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute; bottom: -16px; right: -16px;
+      width: 50%; height: 50%;
+      background: rgba(184, 146, 74, 0.12); border-radius: 16px;
+      z-index: -1;
+    }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-top: 3rem;
+    }
+
+    .stat {
+      padding: 1.5rem; background: var(--gri-acik);
+      border-radius: 12px; text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--bordo); line-height: 1; letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 0.8rem; color: var(--metin-soft);
+      margin-top: 0.4rem; font-weight: 500;
+    }
+
+    .etkinlikler { background: var(--krem); }
+
+    .etkinlikler-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 3rem;
+      flex-wrap: wrap; gap: 1rem;
+    }
+
+    .etkinlikler-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto; gap: 1.2rem;
+    }
+
+    .etkinlik-card {
+      background: var(--beyaz); border-radius: 16px;
+      overflow: hidden; cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .etkinlik-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(107, 26, 42, 0.1);
+    }
+
+    .etkinlik-card:first-child { grid-row: span 2; }
+
+    .etkinlik-img {
+      width: 100%; height: 220px;
+      background: linear-gradient(135deg, #f0e8d8, var(--gri));
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .etkinlik-card:first-child .etkinlik-img { height: 380px; }
+
+    .etkinlik-img-placeholder {
+      color: rgba(107, 26, 42, 0.4);
+      font-size: 0.85rem; font-weight: 500;
+    }
+
+    .etkinlik-content { padding: 1.5rem; }
+    .etkinlik-card:first-child .etkinlik-content { padding: 2rem; }
+
+    .etkinlik-tarih {
+      font-size: 0.75rem; color: var(--bordo); font-weight: 500;
+      margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+
+    .etkinlik-baslik {
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--metin); line-height: 1.35;
+      margin-bottom: 0.6rem;
+    }
+
+    .etkinlik-card:first-child .etkinlik-baslik { font-size: 1.5rem; }
+
+    .etkinlik-aciklama {
+      font-size: 0.88rem; color: var(--metin-soft); line-height: 1.6;
+    }
+
+    .calismalar { background: var(--beyaz); }
+
+    .calismalar-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+
+    .calisma-card {
+      padding: 2rem; background: var(--krem); border-radius: 16px;
+      transition: all 0.3s ease; border: 1px solid transparent;
+    }
+
+    .calisma-card:hover {
+      border-color: rgba(107, 26, 42, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .calisma-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(107, 26, 42, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--bordo); font-size: 1.4rem; margin-bottom: 1.2rem;
+    }
+
+    .calisma-baslik {
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--metin); margin-bottom: 0.6rem;
+    }
+
+    .calisma-aciklama {
+      font-size: 0.9rem; color: var(--metin-soft); line-height: 1.65;
+    }
+
+    .iletisim { background: var(--krem); }
+
+    .iletisim-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .iletisim-form {
+      background: var(--beyaz); padding: 2.5rem; border-radius: 16px;
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-group label {
+      font-size: 0.82rem; color: var(--metin); font-weight: 500;
+    }
+
+    .form-group input, .form-group textarea {
+      background: var(--gri-acik); border: 1px solid transparent;
+      border-radius: 10px; padding: 0.85rem 1rem;
+      font-family: inherit; font-size: 0.92rem; color: var(--metin);
+      outline: none; transition: all 0.25s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      background: var(--beyaz); border-color: var(--bordo);
+    }
+
+    .form-group textarea { resize: none; height: 110px; }
+
+    .iletisim-info p {
+      font-size: 1rem; line-height: 1.75;
+      color: var(--metin-soft); margin-bottom: 2.5rem;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .contact-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.2rem; background: var(--beyaz); border-radius: 12px;
+    }
+
+    .contact-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(107, 26, 42, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--bordo); flex-shrink: 0; font-size: 1rem;
+    }
+
+    .contact-item-label {
+      font-size: 0.78rem; color: var(--metin-soft);
+      font-weight: 500; margin-bottom: 0.2rem;
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem; color: var(--metin); font-weight: 500;
+    }
+
+    footer {
+      background: var(--metin); padding: 3rem 4rem;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    }
+
+    .footer-logo { font-size: 1rem; color: var(--krem); font-weight: 600; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+
+    .footer-links a {
+      color: rgba(250, 246, 238, 0.6); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500; transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--krem); }
+
+    .footer-copy { font-size: 0.82rem; color: rgba(250, 246, 238, 0.4); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .section-inner { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-image { display: none; }
+      .etkinlikler-grid { grid-template-columns: 1fr; }
+      .etkinlik-card:first-child { grid-row: span 1; }
+      .etkinlik-card:first-child .etkinlik-img { height: 220px; }
+      .etkinlik-card:first-child .etkinlik-content { padding: 1.5rem; }
+      .etkinlik-card:first-child .etkinlik-baslik { font-size: 1.05rem; }
+      .calismalar-grid { grid-template-columns: 1fr; }
+      .iletisim-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .stats { gap: 0.5rem; }
+      .stat { padding: 1rem 0.5rem; }
+      .stat-number { font-size: 1.6rem; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-mark"><img src="images/logo.png" alt="Boğaziçi Zeybek Ekibi Logo"></span>
+    Boğaziçi Zeybek Ekibi
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hakkimizda">Hakkımızda</a></li>
+    <li><a href="#etkinlikler">Etkinlikler</a></li>
+    <li><a href="#calismalarimiz">Çalışmalarımız</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Boğaziçi Üniversitesi
+    </div>
+    <div class="hero-logo">
+      <img src="images/logo.png" alt="Boğaziçi Zeybek Ekibi Logo">
+    </div>
+    <h1>Boğaziçi <span>Zeybek</span> Ekibi</h1>
+    <p class="hero-subtitle" id="hero-subtitle">Ege'nin köklü halk dansı geleneğini Boğaziçi'nde yaşatıyor, geleceğe taşıyoruz.</p>
+    <div class="hero-buttons">
+      <a href="#hakkimizda" class="btn-primary">Bizi Tanıyın →</a>
+      <a href="#iletisim" class="btn-secondary">İletişim</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Hakkımızda</div>
+        <h2>Zeybek geleneğini <span>geleceğe</span> taşıyoruz</h2>
+        <p id="hakkimizda-1">Boğaziçi Üniversitesi Zeybek Ekibi, Ege ve Batı Anadolu'nun köklü halk dansı kültürünü akademik çevrede yaşatmak ve geliştirmek amacıyla kurulmuştur.</p>
+        <p id="hakkimizda-2">Ekibimiz; özgün zeybeklerimizi akademik disiplin içinde icra ederek Boğaziçi kürsüsünden Türkiye'nin dört bir yanına taşımaktadır. Her gösterimizde kültürel mirasımıza duyduğumuz saygıyı ve sevinci yansıtıyoruz.</p>
+        <div class="stats" id="stats">
+          <div class="stat"><div class="stat-number">40+</div><div class="stat-label">Yıllık Gelenek</div></div>
+          <div class="stat"><div class="stat-number">60</div><div class="stat-label">Aktif Üye</div></div>
+          <div class="stat"><div class="stat-number">200+</div><div class="stat-label">Gösteri</div></div>
+        </div>
+      </div>
+      <div class="about-image">
+        <div class="img-placeholder" id="ekip-foto">
+          <div class="img-placeholder-text">Ekip fotoğrafı<br>buraya eklenecek</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="etkinlikler" id="etkinlikler">
+  <div class="section-inner">
+    <div class="etkinlikler-header">
+      <div>
+        <div class="section-label">Geçmiş & Gelecek</div>
+        <h2>Etkinlik<span>lerimiz</span></h2>
+      </div>
+    </div>
+    <div class="etkinlikler-grid" id="etkinlikler-grid">
+      <div class="etkinlik-card">
+        <div class="etkinlik-img"><div class="etkinlik-img-placeholder">Henüz etkinlik eklenmedi</div></div>
+        <div class="etkinlik-content">
+          <div class="etkinlik-tarih">İlk etkinliğinizi /admin panelinden ekleyin</div>
+          <div class="etkinlik-baslik">Buraya etkinlikleriniz gelecek</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calismalar" id="calismalarimiz">
+  <div class="section-inner">
+    <div class="section-label">Neler Yapıyoruz</div>
+    <h2>Çalışma<span>larımız</span></h2>
+    <p style="color: var(--metin-soft); max-width: 600px; margin-top: 0.5rem;">Yıl boyu süren düzenli çalışmalarımız ve etkinliklerimizle zeybek geleneğini canlı tutuyoruz.</p>
+    <div class="calismalar-grid" id="calismalar-grid">
+      <div class="calisma-card">
+        <div class="calisma-icon">♪</div>
+        <div class="calisma-baslik">Haftalık Provalar</div>
+        <p class="calisma-aciklama">Düzenli prova programımızla her hafta bir araya gelip teknik ve repertuvar çalışmalarımızı sürdürüyoruz.</p>
+      </div>
+      <div class="calisma-card">
+        <div class="calisma-icon">★</div>
+        <div class="calisma-baslik">Sahne Gösterileri</div>
+        <p class="calisma-aciklama">Üniversite içi ve dışı pek çok platformda sahne alıyor, izleyiciyle buluşuyoruz.</p>
+      </div>
+      <div class="calisma-card">
+        <div class="calisma-icon">⚘</div>
+        <div class="calisma-baslik">Yöre Araştırmaları</div>
+        <p class="calisma-aciklama">Ege bölgesinin farklı yörelerine geziler düzenleyerek özgün zeybek formlarını kaynağından öğreniyoruz.</p>
+      </div>
+      <div class="calisma-card">
+        <div class="calisma-icon">◈</div>
+        <div class="calisma-baslik">Atölye Çalışmaları</div>
+        <p class="calisma-aciklama">Yeni üyelerimiz ve dans severler için temel zeybek atölyeleri düzenliyoruz.</p>
+      </div>
+      <div class="calisma-card">
+        <div class="calisma-icon">✦</div>
+        <div class="calisma-baslik">Festival Katılımları</div>
+        <p class="calisma-aciklama">Yurt içi ve yurt dışı halk dansları festivallerinde Türk kültürünü temsil ediyoruz.</p>
+      </div>
+      <div class="calisma-card">
+        <div class="calisma-icon">❋</div>
+        <div class="calisma-baslik">Kostüm & Tasarım</div>
+        <p class="calisma-aciklama">Yöresel kıyafetlerimizi özenle koruyor, gösterilerimize özel tasarımlar hazırlıyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="iletisim" id="iletisim">
+  <div class="section-inner">
+    <div class="iletisim-grid">
+      <div class="iletisim-info">
+        <div class="section-label">Bize Ulaşın</div>
+        <h2>İletişim</h2>
+        <p>Ekibimize katılmak, iş birliği teklif etmek ya da gösteri daveti göndermek için bizimle iletişime geçebilirsiniz.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-item-label">E-posta</div>
+              <div class="contact-item-value" id="eposta">bogazicizeybek@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Adres</div>
+              <div class="contact-item-value" id="adres">Boğaziçi Üniversitesi, Kuzey Kampüs · Beşiktaş, İstanbul</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">◎</div>
+            <div>
+              <div class="contact-item-label">Sosyal Medya</div>
+              <div class="contact-item-value" id="sosyal">@bounzeybek</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="iletisim-form" name="iletisim" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="iletisim">
+        <div class="form-group">
+          <label>Ad Soyad</label>
+          <input type="text" name="ad" placeholder="Adınız Soyadınız">
+        </div>
+        <div class="form-group">
+          <label>E-posta</label>
+          <input type="email" name="eposta" placeholder="ornek@mail.com">
+        </div>
+        <div class="form-group">
+          <label>Konu</label>
+          <input type="text" name="konu" placeholder="Mesajınızın konusu">
+        </div>
+        <div class="form-group">
+          <label>Mesaj</label>
+          <textarea name="mesaj" placeholder="Mesajınızı buraya yazın..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">Gönder →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Boğaziçi Zeybek Ekibi</div>
+  <ul class="footer-links">
+    <li><a href="#hakkimizda">Hakkımızda</a></li>
+    <li><a href="#etkinlikler">Etkinlikler</a></li>
+    <li><a href="#calismalarimiz">Çalışmalarımız</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Boğaziçi Üniversitesi Zeybek Ekibi</div>
+</footer>
+
+<script>
+  // Netlify Identity yönlendirmesi
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(107, 26, 42, 0.06)' : 'none';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  function gozlemle() {
+    document.querySelectorAll('.etkinlik-card, .calisma-card, .stat, .contact-item').forEach(el => {
+      if (el.dataset.gozlendi) return;
+      el.dataset.gozlendi = 'true';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  }
+
+  // Tarih formatla
+  function tarihFormatla(tarihStr) {
+    if (!tarihStr) return '';
+    const aylar = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+    const d = new Date(tarihStr);
+    if (isNaN(d)) return tarihStr;
+    return d.getDate() + ' ' + aylar[d.getMonth()] + ' ' + d.getFullYear();
+  }
+
+  // CMS içeriklerini yükle
+  async function dosyaYukle(yol) {
+    try {
+      const res = await fetch(yol);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch { return null; }
+  }
+
+  async function etkinlikleriYukle() {
+    const liste = await dosyaYukle('/content/etkinlikler/_list.json');
+    if (!liste || !liste.length) return;
+    liste.sort((a,b) => (b.sira||0) - (a.sira||0) || new Date(b.tarih) - new Date(a.tarih));
+    const oneCikan = liste.find(e => e.one_cikan) || liste[0];
+    const digerleri = liste.filter(e => e !== oneCikan).slice(0, 4);
+    const grid = document.getElementById('etkinlikler-grid');
+    grid.innerHTML = '';
+    function kart(e, oneCikanMi) {
+      const fotoStyle = e.foto ? `style="background-image:url('${e.foto}'); background-size:cover; background-position:center;"` : '';
+      const placeholder = !e.foto ? `<div class="etkinlik-img-placeholder">${oneCikanMi ? 'Fotoğraf eklenecek' : 'Fotoğraf'}</div>` : '';
+      const altyazi = e.konum ? ` · ${e.konum}` : '';
+      const ozet = (oneCikanMi && e.ozet) ? `<p class="etkinlik-aciklama">${e.ozet}</p>` : '';
+      return `
+        <div class="etkinlik-card">
+          <div class="etkinlik-img" ${fotoStyle}>${placeholder}</div>
+          <div class="etkinlik-content">
+            <div class="etkinlik-tarih">${tarihFormatla(e.tarih)}${altyazi}</div>
+            <div class="etkinlik-baslik">${e.baslik}</div>
+            ${ozet}
+          </div>
+        </div>`;
+    }
+    grid.innerHTML = kart(oneCikan, true) + digerleri.map(e => kart(e, false)).join('');
+    gozlemle();
+  }
+
+  async function calismalariYukle() {
+    const liste = await dosyaYukle('/content/calismalar/_list.json');
+    if (!liste || !liste.length) return;
+    liste.sort((a,b) => (a.sira||0) - (b.sira||0));
+    const grid = document.getElementById('calismalar-grid');
+    grid.innerHTML = liste.map(c => `
+      <div class="calisma-card">
+        <div class="calisma-icon">${c.ikon || '★'}</div>
+        <div class="calisma-baslik">${c.baslik}</div>
+        <p class="calisma-aciklama">${c.aciklama}</p>
+      </div>`).join('');
+    gozlemle();
+  }
+
+  async function ayarlariYukle() {
+    const a = await dosyaYukle('/content/ayarlar/genel.json');
+    if (!a) return;
+    if (a.hero_altyazi) document.getElementById('hero-subtitle').textContent = a.hero_altyazi;
+    if (a.hakkimizda_1) document.getElementById('hakkimizda-1').textContent = a.hakkimizda_1;
+    if (a.hakkimizda_2) document.getElementById('hakkimizda-2').textContent = a.hakkimizda_2;
+    if (a.eposta) document.getElementById('eposta').textContent = a.eposta;
+    if (a.adres) document.getElementById('adres').textContent = a.adres;
+    if (a.sosyal) document.getElementById('sosyal').textContent = a.sosyal;
+    if (a.ekip_foto) {
+      const el = document.getElementById('ekip-foto');
+      el.style.backgroundImage = `url('${a.ekip_foto}')`;
+      el.style.backgroundSize = 'cover';
+      el.style.backgroundPosition = 'center';
+      const txt = el.querySelector('.img-placeholder-text');
+      if (txt) txt.style.display = 'none';
+    }
+    if (a.istatistikler && a.istatistikler.length) {
+      document.getElementById('stats').innerHTML = a.istatistikler.map(s => `
+        <div class="stat">
+          <div class="stat-number">${s.sayi}</div>
+          <div class="stat-label">${s.etiket}</div>
+        </div>`).join('');
+      gozlemle();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gozlemle();
+    ayarlariYukle();
+    etkinlikleriYukle();
+    calismalariYukle();
+  });
+</script>
+
+</body>
+</html>
