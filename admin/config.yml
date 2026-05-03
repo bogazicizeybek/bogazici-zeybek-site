@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "tr"
+
+site_url: https://bogazicizeybek.netlify.app
+display_url: https://bogazicizeybek.netlify.app
+logo_url: https://bogazicizeybek.netlify.app/images/logo.png
+
+collections:
+  - name: "ayarlar"
+    label: "Site Ayarları"
+    files:
+      - file: "content/ayarlar/genel.json"
+        label: "Genel Bilgiler"
+        name: "genel"
+        fields:
+          - { label: "Hero Alt Yazısı", name: "hero_altyazi", widget: "text" }
+          - { label: "Hakkımızda 1. Paragraf", name: "hakkimizda_1", widget: "text" }
+          - { label: "Hakkımızda 2. Paragraf", name: "hakkimizda_2", widget: "text" }
+          - { label: "Ekip Fotoğrafı", name: "ekip_foto", widget: "image", required: false }
+          - label: "İstatistikler"
+            name: "istatistikler"
+            widget: "list"
+            fields:
+              - { label: "Sayı", name: "sayi", widget: "string" }
+              - { label: "Etiket", name: "etiket", widget: "string" }
+          - { label: "E-posta", name: "eposta", widget: "string" }
+          - { label: "Adres", name: "adres", widget: "string" }
+          - { label: "Sosyal Medya", name: "sosyal", widget: "string" }
+
+  - name: "etkinlikler"
+    label: "Etkinlikler"
+    label_singular: "Etkinlik"
+    folder: "content/etkinlikler"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{tarih}} — {{baslik}}"
+    sortable_fields: ['tarih']
+    fields:
+      - { label: "Başlık", name: "baslik", widget: "string" }
+      - { label: "Tarih", name: "tarih", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Kısa Açıklama", name: "ozet", widget: "text", required: false, hint: "Sadece öne çıkan etkinlikte görünür" }
+      - { label: "Konum / Alt Etiket", name: "konum", widget: "string", required: false, hint: "Örn: Bahar Şenliği, İzmir, vb." }
+      - { label: "Kapak Fotoğrafı", name: "foto", widget: "image", required: false }
+      - { label: "Öne Çıkar?", name: "one_cikan", widget: "boolean", default: false, hint: "İşaretlenirse en üstte büyük olarak gösterilir" }
+      - { label: "Sıra (büyük sayı önce gelir)", name: "sira", widget: "number", default: 0, value_type: "int", required: false }
+
+  - name: "calismalar"
+    label: "Çalışmalarımız"
+    label_singular: "Çalışma"
+    folder: "content/calismalar"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    summary: "{{baslik}}"
+    fields:
+      - { label: "Başlık", name: "baslik", widget: "string" }
+      - { label: "Açıklama", name: "aciklama", widget: "text" }
+      - { label: "Sembol", name: "ikon", widget: "select", options: ["♪", "★", "⚘", "◈", "✦", "❋", "♛", "❀"], default: "★" }
+      - { label: "Sıra (küçük sayı önce gelir)", name: "sira", widget: "number", default: 0, value_type: "int" }

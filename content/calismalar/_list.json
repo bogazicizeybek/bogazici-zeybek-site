@@ -1,0 +1,38 @@
+[
+  {
+    "baslik": "Haftalık Provalar",
+    "aciklama": "Düzenli prova programımızla her hafta bir araya gelip teknik ve repertuvar çalışmalarımızı sürdürüyoruz.",
+    "ikon": "♪",
+    "sira": 1
+  },
+  {
+    "baslik": "Sahne Gösterileri",
+    "aciklama": "Üniversite içi ve dışı pek çok platformda sahne alıyor, izleyiciyle buluşuyoruz.",
+    "ikon": "★",
+    "sira": 2
+  },
+  {
+    "baslik": "Yöre Araştırmaları",
+    "aciklama": "Ege bölgesinin farklı yörelerine geziler düzenleyerek özgün zeybek formlarını kaynağından öğreniyoruz.",
+    "ikon": "⚘",
+    "sira": 3
+  },
+  {
+    "baslik": "Atölye Çalışmaları",
+    "aciklama": "Yeni üyelerimiz ve dans severler için temel zeybek atölyeleri düzenliyoruz.",
+    "ikon": "◈",
+    "sira": 4
+  },
+  {
+    "baslik": "Festival Katılımları",
+    "aciklama": "Yurt içi ve yurt dışı halk dansları festivallerinde Türk kültürünü temsil ediyoruz.",
+    "ikon": "✦",
+    "sira": 5
+  },
+  {
+    "baslik": "Kostüm & Tasarım",
+    "aciklama": "Yöresel kıyafetlerimizi özenle koruyor, gösterilerimize özel tasarımlar hazırlıyoruz.",
+    "ikon": "❋",
+    "sira": 6
+  }
+]
