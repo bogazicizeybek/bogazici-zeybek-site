@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boğaziçi Üniversitesi Zeybek Ekibi</title>
   <link rel="icon" type="image/png" href="images/zeybek-figur.png">
+  <link rel="shortcut icon" type="image/png" href="images/zeybek-figur.png">
+  <link rel="apple-touch-icon" href="images/zeybek-figur.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -110,23 +112,7 @@
       padding-top: 80px;
     }
 
-    /* Dikey desen şeritleri — tüm sayfa boyunca sabit */
-    .desen-sol,
-    .desen-sag {
-      position: fixed;
-      top: 0; bottom: 0;
-      width: 80px;
-      pointer-events: none;
-      opacity: 0.13;
-      background-image: url('images/desen.jpeg');
-      background-repeat: repeat-y;
-      background-size: 80px auto;
-      background-position: top center;
-      z-index: 50;
-    }
-
-    .desen-sol { left: 0; }
-    .desen-sag { right: 0; transform: scaleX(-1); }
+    /* Desen şeritleri kaldırıldı */
 
     /* Decorative corner accents */
     .hero-accent-tl {
@@ -433,11 +419,14 @@
     .calisma-card {
       padding: 2rem; background: var(--krem); border-radius: 16px;
       transition: all 0.3s ease; border: 1px solid transparent;
+      text-decoration: none; display: block; color: inherit;
+      cursor: pointer;
     }
 
     .calisma-card:hover {
       border-color: rgba(107, 26, 42, 0.2);
       transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(107,26,42,0.1);
     }
 
     .calisma-icon {
@@ -576,6 +565,14 @@
     }
     .katilim-btn:hover { background: #8a2234; transform: translateY(-1px); }
 
+    .mail-link {
+      color: var(--bordo);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .mail-link:hover { opacity: 0.75; text-decoration: underline; }
+
     /* Hamburger menü */
     .hamburger {
       display: none;
@@ -637,8 +634,6 @@
   </style>
 </head>
 <body>
-<div class="desen-sol"></div>
-<div class="desen-sag"></div>
 
 <nav>
   <a href="#" class="nav-logo">
@@ -737,36 +732,36 @@
     <h2>Çalışma<span>larımız</span></h2>
     <p style="color: var(--metin-soft); max-width: 600px; margin-top: 0.5rem;">Yıl boyu süren düzenli çalışmalarımız ve etkinliklerimizle zeybek geleneğini canlı tutuyoruz.</p>
     <div class="calismalar-grid" id="calismalar-grid">
-      <div class="calisma-card">
+      <a href="haftalik-provalar.html" class="calisma-card">
         <div class="calisma-icon">♪</div>
         <div class="calisma-baslik">Haftalık Provalar</div>
         <p class="calisma-aciklama">Düzenli prova programımızla her hafta bir araya gelip yeni oyun öğrenip oyun repertuvarımızı genişletmeye çalışıyoruz.</p>
-      </div>
-      <div class="calisma-card">
+      </a>
+      <a href="gosteriler.html" class="calisma-card">
         <div class="calisma-icon">★</div>
         <div class="calisma-baslik">Gösteriler</div>
-        <p class="calisma-aciklama">Her akademik yılın sonunda, okulumuzda bir tiyatral zeybek gösterisi hazırlıyoruz. Mezunalrımız ve öğrencilerimizin katkılarıyla özgün bir performans ortaya koyma gayretindeyiz.</p>
-      </div>
-      <div class="calisma-card">
+        <p class="calisma-aciklama">Her akademik yılın sonunda, okulumuzda bir tiyatral zeybek gösterisi hazırlıyoruz. Mezunlarımız ve öğrencilerimizin katkılarıyla özgün bir performans ortaya koyma gayretindeyiz.</p>
+      </a>
+      <a href="akademik-koy-kamplari.html" class="calisma-card">
         <div class="calisma-icon">⚘</div>
         <div class="calisma-baslik">Akademik Köy Kampları</div>
         <p class="calisma-aciklama">Her yaz ayının sonuna doğru Ege bölgesinin farklı yörelerindeki köylerinde akademik köy kampı düzenleyerek özgün zeybek formlarını kaynağından öğreniyor. Misafir eğitmenlerimizle çeşitli atölyeler düzenliyoruz.</p>
-      </div>
-      <div class="calisma-card">
+      </a>
+      <a href="atolye-calismalari.html" class="calisma-card">
         <div class="calisma-icon">◈</div>
         <div class="calisma-baslik">Atölye Çalışmaları</div>
         <p class="calisma-aciklama">Yeni üyelerimiz ve zeybek severler için temel zeybek atölyeleri düzenliyoruz.</p>
-      </div>
-      <div class="calisma-card">
+      </a>
+      <a href="festival-katilimlari.html" class="calisma-card">
         <div class="calisma-icon">✦</div>
         <div class="calisma-baslik">Festival Katılımları</div>
         <p class="calisma-aciklama">Yurt içi ve yurt dışı halk oyunları festivallerinde zeybeklik kültürünü temsil ediyoruz.</p>
-      </div>
-      <div class="calisma-card">
+      </a>
+      <a href="yarismalari.html" class="calisma-card">
         <div class="calisma-icon">❋</div>
         <div class="calisma-baslik">Yarışmalar</div>
         <p class="calisma-aciklama">Stilize ve gelenksel olmak üzere her yıl Üniversitelerarası veya Kulüplerarası yarışmalara katılıyoruz.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -783,7 +778,7 @@
             <div class="contact-icon">✉</div>
             <div>
               <div class="contact-item-label">E-posta</div>
-              <div class="contact-item-value" id="eposta">bogazicizeybek@gmail.com</div>
+              <div class="contact-item-value" id="eposta"><a href="mailto:bogazicizeybek@gmail.com" class="mail-link">bogazicizeybek@gmail.com</a></div>
             </div>
           </div>
           <div class="contact-item">

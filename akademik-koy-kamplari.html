@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akademik Köy Kampları | Boğaziçi Zeybek Ekibi</title>
+  <link rel="icon" type="image/png" href="images/zeybek-figur.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bordo: #6B1A2A; --krem: #FAF6EE; --beyaz: #FFFFFF;
+      --metin: #1a0e12; --metin-soft: #5a3d44; --gri: #e8e0d5;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--krem); color: var(--metin); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 4rem;
+      background: var(--bordo);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo {
+      font-size: 1.05rem; font-weight: 700; color: var(--krem);
+      text-decoration: none; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .nav-logo-mark {
+      width: 38px; height: 38px; display: flex; align-items: center;
+      justify-content: center; background: var(--beyaz); border-radius: 50%; padding: 3px;
+    }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .nav-geri {
+      color: var(--krem); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; display: flex; align-items: center; gap: 0.4rem;
+      opacity: 0.85; transition: opacity 0.2s;
+    }
+    .nav-geri:hover { opacity: 1; }
+
+    /* HERO */
+    .sayfa-hero {
+      min-height: 55vh; display: flex; align-items: flex-end;
+      padding: 8rem 4rem 4rem; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--bordo) 0%, #3d0f18 100%);
+    }
+    .sayfa-hero-gorsel {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0.25;
+    }
+    .sayfa-hero-icerik { position: relative; z-index: 2; max-width: 800px; }
+    .sayfa-etiket {
+      display: inline-block; padding: 0.35rem 1rem;
+      background: rgba(255,255,255,0.15); border-radius: 100px;
+      color: var(--krem); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .sayfa-baslik {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700;
+      color: var(--beyaz); line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .sayfa-baslik span { color: rgba(255,255,255,0.6); }
+
+    /* İÇERİK */
+    .sayfa-icerik {
+      max-width: 900px; margin: 0 auto; padding: 5rem 4rem;
+    }
+    .icerik-gorsel {
+      width: 100%; max-height: 500px; object-fit: cover;
+      border-radius: 16px; margin-bottom: 3rem;
+      box-shadow: 0 20px 60px rgba(107,26,42,0.15);
+    }
+    .icerik-gorsel-placeholder {
+      width: 100%; height: 320px; background: var(--gri);
+      border-radius: 16px; margin-bottom: 3rem;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--metin-soft); font-size: 3rem;
+    }
+    .icerik-metin { font-size: 1.1rem; line-height: 1.85; color: var(--metin-soft); }
+    .icerik-metin p { margin-bottom: 1.5rem; }
+    .icerik-metin p:last-child { margin-bottom: 0; }
+
+    /* GERİ DÖN */
+    .geri-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 3rem; padding: 0.75rem 1.8rem;
+      background: var(--bordo); color: var(--beyaz);
+      text-decoration: none; border-radius: 100px;
+      font-weight: 600; font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .geri-btn:hover { background: #8a2234; transform: translateY(-2px); }
+
+    /* MOBİL */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .sayfa-hero { padding: 7rem 1.5rem 3rem; min-height: 45vh; }
+      .sayfa-icerik { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark"><img src="images/logo.png" alt="Logo"></span>
+    Boğaziçi Zeybek Ekibi
+  </a>
+  <a href="index.html#calismalarimiz" class="nav-geri">← Çalışmalarımız</a>
+</nav>
+
+<section class="sayfa-hero">
+  <div class="sayfa-hero-gorsel" style="background-image: url('images/logo.png');"></div>
+  <div class="sayfa-hero-icerik">
+    <div class="sayfa-etiket">Çalışmalarımız</div>
+    <h1 class="sayfa-baslik">Akademik Köy Kampları</h1>
+  </div>
+</section>
+
+<div class="sayfa-icerik">
+  <div class="icerik-gorsel-placeholder">⚘</div>
+  <div class="icerik-metin">
+    <p>Her yaz ayının sonuna doğru Ege bölgesinin farklı yörelerindeki köylerde akademik köy kampı düzenliyoruz. Bu kamplar, zeybek kültürünü kaynağından öğrenme ve yaşatma açısından ekibimizin en kıymetli çalışmalarından biridir.</p>
+<p>Köy halkıyla bire bir etkileşim kurarak unutulmaya yüz tutan oyunları, hareketleri ve türküleri derliyoruz. Misafir eğitmenlerimizle çeşitli atölyeler düzenleyerek hem teknik bilgi hem de kültürel birikim kazanıyoruz.</p>
+<p>Kamplar; ekip dayanışmasını güçlendirirken Anadolu kültürüne derin bir saygı ve anlayış geliştirme fırsatı da sunmaktadır.</p>
+  </div>
+  <a href="index.html#calismalarimiz" class="geri-btn">← Çalışmalarımıza Dön</a>
+</div>
+
+</body>
+</html>
